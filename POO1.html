@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // POO 1
+
+        class Persona {
+            constructor(nombre, edad, genero) {
+                this.nombre = nombre;
+                this.edad = edad;
+                this.genero = genero;
+            }
+
+            obtDetalles() {
+                console.log(this.nombre);
+                console.log(this.edad);
+                console.log(this.genero);
+            }
+
+          
+
+        }
+
+        // const dani = new Persona("Dani", 24, "Hombre")
+
+        // console.log(dani.edad)
+
+        // dani.obtDetalles()
+
+
+
+
+        class Estudiante extends Persona {
+            constructor(nombre, edad, genero, curso, grupo){
+            super(nombre, edad, genero)
+
+            this.grupo = grupo;
+            this.curso = curso;
+            }
+
+            registrar() {
+                console.log(`${this.grupo}, ${this.curso}`)
+            }
+        }
+
+        const dani = new Estudiante("Dani", 24, "Hombre", "Fullstack", "Fulltime")
+
+        dani.registrar()
+
+        class Profesor extends Persona {
+            constructor(nombre, edad, genero){
+            super (nombre, edad, genero)
+
+            this.asginatura = null
+            this.nivel = null
+            }
+
+            asignar(asignatura, nivel){
+
+                this.asignatura = asignatura
+                this.nivel = nivel
+                console.log(`${this.asginatura}, ${this.nivel}`)
+            }
+
+            obtDetalles() {
+                super.obtDetalles()
+                    console.log(this.asginatura)
+                    console.log(this.nivel)
+                
+            }
+        }
+
+        const antonio = new Profesor ("Antonio", 18, "Hombre")
+
+        antonio.asignar("Programación", "Super Pro")
+
+        console.log(antonio.nivel)
+
+        antonio.obtDetalles()
+
+
+
+
+
+    </script>
+</body>
+</html>
