@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+
+        class Warrior {
+            constructor(life, power){
+
+            this.life = life
+            this.power = power
+            }
+
+            attack(){
+
+                console.log(`El guerrero ataca con ${this.power} de poder`)
+
+                return this.power
+            }
+
+            defend(damage) {
+
+                this.life = this.life - damage
+
+                console.log(`El rival se defiende ${this.life} HP restantes`)
+
+                return this.life
+            }
+        }
+
+        class Maya extends Warrior {
+            constructor(life, power) {
+                super(life, power)
+            }
+
+            drinkColacao() {
+                this.power = this.power + 10
+                console.log("Guerrero maya usó Colacaito de poder: +10 Ataque")
+            }
+        }
+
+        class Aztec extends Warrior {
+            constructor(life, power) {
+                super(life, power)
+            }
+
+            drinkNesquik() {
+                this.life = this.life + 10
+                console.log("Guerrero azteca usó Nesquik de la vida eterna: +10 HP")
+
+            }
+        }
+
+        const warriorAztec = new Aztec (100, 20)
+
+        const warriorMaya = new Maya (100, 20)
+
+        console.log("Turno del guerrero azteca")
+
+        warriorAztec.drinkNesquik()
+
+        console.log("Turno del guerrero maya")
+
+        warriorMaya.drinkColacao()
+
+        console.log("Turno del guerrero maya")
+
+        warriorMaya.defend(warriorAztec.attack())
+
+        console.log("Turno del guerrero azteca")
+
+        warriorAztec.defend(warriorMaya.attack())
+
+
+
+    </script>
+
+
+
+
+</body>
+</html>
